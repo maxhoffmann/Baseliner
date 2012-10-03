@@ -7,15 +7,26 @@ is no need for you to load jQuery. The margin is applied as `em` and calculated 
 
 Default settings:
 
-- `class`: '.baseliner'
-- `lineHeight`: 24, (1.5em at default fontSize)
-- `space`: 0,
+- `selector`: 'img' (align images per default)
+- `lineHeight`: 24 (1.5em at default font-size)
+- `space`: 0 (lines of additional margin applied)
 - `fontSize`: 16 (default Browser font-size)
 
 ```javascript
-baseliner.init();                // Apply default baseline to all elements with the class '.baseliner' on the page
-baseliner.init('.align');        // Apply default baseline to all elements with class '.align' on the page
-baseliner.init('.align', 28, 1); // Apply a 28px (1.75em) baseline to all elements with class '.align' on the page and add one line margin
+// Apply baseline with default settings
+baseliner.init();
+
+// Apply baseline to all elements with the class '.baseliner'
+baseliner.init('.baseliner');
+
+// Apply a 28px baseline to all elements with class '.baseliner'
+baseliner.init('.baseliner', 28);
+
+// Apply a 28px baseline to all elements with class '.baseliner' on the page and add one baseline margin
+baseliner.init('.baseliner', 28, 1);
+
+// Apply a 28px/18px baseline to all elements with class '.baseliner' on the page and add one baseline margin
+baseliner.init('.baseliner', 28, 1, 18);
 ```
 
 ## License
