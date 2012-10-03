@@ -22,7 +22,7 @@ var baseliner = (function() {
 
   _baseliner = {
     init: function( selector, lineHeight, space, fontSize ) {
-      this.selector = selector || '.baseliner';
+      this.selector = selector || 'img';
       this.fontSize = +fontSize || 16;
       this.lineHeight = +lineHeight || 24;
       this.space = +space || 0;
