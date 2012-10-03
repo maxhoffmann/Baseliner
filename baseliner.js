@@ -9,28 +9,24 @@
  * http://sam.zoy.org/wtfpl/
  */
 
-var baseliner = (function() {
+var baseliner = {
 
-  var align = function() {
-    var el = document.querySelectorAll(_baseliner.selector),
+  init: function( selector, lineHeight, space, fontSize ) {
+    this.selector = selector || 'img';
+    this.fontSize = +fontSize || 16;
+    this.lineHeight = +lineHeight || 24;
+    this.space = +space || 0;
+    this.align();
+    window.onresize = baseliner.align;
+  },
+
+  align: function() {
+    var el = document.querySelectorAll(baseliner.selector),
     i = 0;
 
     for( ; i < el.length; i++ ) {
-      el[i].style.marginBottom = ((_baseliner.lineHeight-(el[i].offsetHeight%_baseliner.lineHeight))/_baseliner.fontSize)+((_baseliner.lineHeight/_baseliner.fontSize)*_baseliner.space)+"em";
+      el[i].style.marginBottom = ((baseliner.lineHeight-(el[i].offsetHeight%baseliner.lineHeight))/baseliner.fontSize)+((baseliner.lineHeight/baseliner.fontSize)*baseliner.space)+"em";
     }
-  },
+  }
 
-  _baseliner = {
-    init: function( selector, lineHeight, space, fontSize ) {
-      this.selector = selector || 'img';
-      this.fontSize = +fontSize || 16;
-      this.lineHeight = +lineHeight || 24;
-      this.space = +space || 0;
-      align();
-      window.addEventListener('resize', align, false);
-    }
-  };
-
-  return _baseliner;
-
-})();
+};
