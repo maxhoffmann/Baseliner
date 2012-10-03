@@ -1,16 +1,16 @@
 # Baseliner.js
 
-Baseliner.js is a simple script, which applies a baseline to odd elements on your page.
+Baseliner.js adds margin to odd elements on your page to maintain your baseline grid.
 
 Baseliner adds a margin to the bottom of elements, which don’t fit to your baseline. It is written in pure JavaScript, so there
-is no need for you to load jQuery. The margin is applied as `em` and calculated by `lineHeight`/`fontSize`.
+is no need for you to load jQuery and it works on responsive websites. The margin is applied as `em`.
 
 Default settings:
 
-- `selector`: 'img' (align images per default)
-- `lineHeight`: 24 (1.5em at default font-size)
-- `space`: 0 (lines of additional margin applied)
-- `fontSize`: 16 (default Browser font-size)
+- `selector`: 'img' (aligns images per default)
+- `lineHeight`: 24 (in pixel)
+- `space`: 0 (lines of additional margin)
+- `fontSize`: 16 (in pixel, default Browser font-size)
 
 ```javascript
 // Apply baseline with default settings
