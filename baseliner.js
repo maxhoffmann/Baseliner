@@ -1,5 +1,5 @@
 /**
- * Baseliner 1.0
+ * Baseliner 1.1
  *
  * by Maximilian Hoffmann
  *
@@ -7,17 +7,18 @@
  *
  * Released under the WTFPL license
  * http://sam.zoy.org/wtfpl/
- */
+ **/
 
 var baseliner = {
 
-  init: function( selector, lineHeight, space, fontSize ) {
+  init: function( selector, lineHeight, fontSize ) {
     this.selector = selector || 'img';
     this.fontSize = +fontSize || 16;
     this.lineHeight = +lineHeight || 24;
-    this.space = +space || 0;
-    this.align();
-    window.onresize = baseliner.align;
+    if ( window.getComputedStyle ) {
+      this.align();
+      window.onresize = baseliner.align;
+    }
   },
 
   align: function() {
@@ -25,7 +26,8 @@ var baseliner = {
     i = 0;
 
     for( ; i < el.length; i++ ) {
-      el[i].style.marginBottom = ((baseliner.lineHeight-(el[i].offsetHeight%baseliner.lineHeight))/baseliner.fontSize)+((baseliner.lineHeight/baseliner.fontSize)*baseliner.space)+"em";
+      el[i].style.marginBottom = '';
+      el[i].style.marginBottom = (+window.getComputedStyle(el[i],null).getPropertyValue('margin-bottom').slice(0,-2)/baseliner.fontSize)+((baseliner.lineHeight-(el[i].offsetHeight%baseliner.lineHeight))/baseliner.fontSize)+"em";
     }
   }
 
