@@ -25,7 +25,7 @@ baseliner.init('.baseliner');
 // Apply a 28px baseline to all elements with class '.baseliner'
 baseliner.init('.baseliner', 28);
 
-// Apply a 28px baseline to all elements, which parent elements have 18px font-size and class '.baseliner' on the page
+// Apply a 28px baseline to all elements with class '.baseliner', using 18px as a base font-size for em-calculation
 baseliner.init('.baseliner', 28, 18);
 ```
 
